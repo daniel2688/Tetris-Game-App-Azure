@@ -1,27 +1,72 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>Tetris</title>
         <link href="https://fonts.googleapis.com/css?family=Russo+One&display=swap" rel="stylesheet">
         <style>
-        .parent {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-          }
-        #score {
-            font-size:3em
-        }
-        #tetris {
-            height: 90vh;
-            max-height: 900px
-        }
-        
+            body, html {
+                margin: 0;
+                padding: 0;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: #202025;
+                font-family: 'Russo One', sans-serif;
+                color: white;
+            }
+            .game-container {
+                background: #111;
+                padding: 1em;
+                border-radius: 5px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            #tetris {
+                height: 60vh;
+                max-height: 600px;
+                border-radius: 5px;
+                margin-bottom: 1em;
+            }
+            .scoreboard {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                margin-bottom: 1em;
+            }
+            .scoreboard div {
+                font-size: 2em;
+            }
+            .controls {
+                margin-top: 1em;
+                display: flex;
+                gap: 1em;
+            }
+            .button {
+                background: #444;
+                color: white;
+                border: none;
+                padding: 0.5em 1em;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            .button:hover {
+                background: #555;
+            }
         </style>
-        
     </head>
-    <body class="parent" style="background: #202025; font-family: 'Russo One', sans-serif;" >
-        <div  style="color:white; background: #111; padding: 1em; border-radius: 5px">
-            <canvas id="tetris" width="480" height="900" style="border-radius: 5px"></canvas>
+    <body>
+        <div class="game-container">
+            <div class="scoreboard">
+                <div id="score">Score: 0</div>
+                <div id="next-piece">Next Piece:</div>
+            </div>
+            <canvas id="tetris" width="480" height="900"></canvas>
+            <div class="controls">
+                <button class="button" id="pause-button">Pause</button>
+                <button class="button" id="resume-button">Resume</button>
+            </div>
             <script src="tetris.js"></script>
         </div>
     </body>
